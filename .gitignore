@@ -1,0 +1,6 @@
+# Nodejs相关
+app/node_modules/
+userData/
+app/dist/
+# 忽略VSCode配置文件夹
+.vscode/
