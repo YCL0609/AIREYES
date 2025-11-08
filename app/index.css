@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    h2 {
+        color: #fff;
+    }
+
+    body {
+        background-color: #333;
+    }
+}
