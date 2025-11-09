@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>情感分析工具</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>句子情感分析</h1>
+
+        <div class="inputDiv">
+            <input type="text" id="usrInput" placeholder="请输入一个句子进行分析..." maxlength="255">
+            <button id="analyze" class="submit">分析</button>
+        </div>
+
+        <div id="result" class="result"></div>
+
+        <div class="history">
+            <div class="history-info">
+                <h2>历史记录</h2>
+                <button id="clear" class="clear">清除历史记录</button>
+            </div>
+            <ul id="list" class="list"></ul>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
