@@ -1,6 +1,6 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, make_response
 
 # 使用一个已微调的情感模型
 model_name = "distilbert-base-uncased-finetuned-sst-2-english"
@@ -50,6 +50,10 @@ def analyze_sentiment(text: str):
 # API 路由
 @app.route('/analyze_sentiment', methods=['POST'])
 def handle_sentiment_request():
+    # 处理 CORS 预检请求 (OPTIONS)
+    if request.method == 'OPTIONS':
+        # 返回 204 No Content，CORS 头将在 after_request 中添加
+        return make_response('', 204)
     # 确保请求体是 JSON 格式
     if not request.json:
         return jsonify({"error":True,"predicted_label": "Missing JSON in request"}), 400
@@ -68,6 +72,15 @@ def handle_sentiment_request():
     # 执行情感分析
     analysis_result = analyze_sentiment(text)
     return jsonify(analysis_result)
+
+
+# 为所有响应添加 CORS 头，确保浏览器能够完成预检和跨域请求
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+    return response
 
 # --- 5. 运行应用 ---
 if __name__ == '__main__':
