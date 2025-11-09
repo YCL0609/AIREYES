@@ -23,7 +23,7 @@ async function analyze() {
 
     // 显示加载状态
     resultArea.className = 'result';
-    resultArea.innerHTML = '发送请求中';
+    resultArea.innerHTML = 'Loading...';
 
     try {
         // 发送请求到后端 API
@@ -48,22 +48,22 @@ async function analyze() {
         const br = document.createElement('br');
 
         inputText.style.wordBreak = 'break-word';
-        inputText.innerText = `输入: ${sentence}`;
-        scoreText.innerText = `得分: ${(data.probabilities.POSITIVE * 100).toFixed(2)}%`;
+        inputText.innerText = `Input: ${sentence}`;
+        scoreText.innerText = `Score: ${(data.probabilities.POSITIVE * 100).toFixed(2)}%`;
 
         // 根据情感完成样式设置
         switch (data.predicted_label) {
             case 'POSITIVE':
                 resultArea.className = 'result positive';
-                resultText.innerText = '结果: 积极';
+                resultText.innerText = 'Result: Positive';
                 break;
             case 'NEGATIVE':
                 resultArea.className = 'result negative';
-                resultText.innerText = '结果: 消极';
+                resultText.innerText = 'Result: Negative';
                 break;
             default:
                 resultArea.className = 'result';
-                resultText.innerText = `结果: ${data.predicted_label}`;
+                resultText.innerText = `Result: ${data.predicted_label}`;
                 break;
         }
 
@@ -84,11 +84,10 @@ async function analyze() {
         txtHistory.unshift(historyItem);
         localStorage.setItem('history', JSON.stringify(txtHistory));
 
-        // // 3. 重新渲染列表
         showHistory(historyItem);
 
     } catch (error) {
-        resultArea.innerHTML = `<span style="color: red;">分析过程中出现错误: ${error.stack}</span>`;
+        resultArea.innerHTML = `<span style="color: red;">An error occurred during the analysis process: ${error.stack}</span>`;
     }
 }
 
