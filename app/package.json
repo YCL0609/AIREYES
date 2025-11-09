@@ -1,0 +1,66 @@
+{
+  "devDependencies": {
+    "electron": "^39.1.1",
+    "electron-builder": "^26.0.12"
+  },
+  "name": "aireyes",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "YCL",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "publish": "electron-builder --win --linux"
+  },
+  "build": {
+    "appId": "cool.ycl.aireyes",
+    "copyright": "Copyright (C) 2025 YCL",
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "!dist/**/*",
+      "!README.md",
+      "!package-lock.json"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "icons/icon.ico",
+      "target": [
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "icon": "icons/icon.png",
+      "target": [
+        {
+          "target": "tar.gz",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    }
+  }
+}
