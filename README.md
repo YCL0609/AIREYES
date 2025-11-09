@@ -1,4 +1,4 @@
-# Dalhousie Shiftkey Program - Cognizant BrAInstorm Challenge
+# Dalhousie Shiftkey Program - Cognizant BrAInstorm Challenge 11.7 - 11.9
 ## The Sentiment Compass: AI for Suicide Prevention1. 
 
 1. What is the Project?
