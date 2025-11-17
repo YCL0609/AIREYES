@@ -1,5 +1,5 @@
-# Dalhousie Shiftkey Program - Cognizant BrAInstorm Challenge 11.7 - 11.9
-## The Sentiment Compass: AI-Powered Suicide Prevention System
+# The Sentiment Compass: AI-Powered Suicide Prevention System
+## (Dalhousie Shiftkey Cognizant BrAInstorm Challenge 11.7 - 11.9)
 
 1. What is the Project?
 Our project is called the "Sentiment Compass." It is an AI system. Its main goal is to predict if someone is at high risk for suicide. We want to give this information to hospitals and government health teams. This way, they can offer help right away.
